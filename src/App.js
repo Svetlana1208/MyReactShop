@@ -55,30 +55,27 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [user] = useAuthState(auth);
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalSuccessVisible, setModalSuccessVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [userCart, setUserCart] = useState([]);
   const [userOrders, setUserOrders] = useState([]);
 
   async function getCart() {
-      setIsLoading(true);
       let currentCart = [];
       const data = await getDocs(collection(userRef, "cart"));
       data.forEach((device) => {
         currentCart.push(device.data());
       });
       setUserCart(currentCart);
-      setIsLoading(false)
   }
 
   async function getOrder() {
-    setIsLoading(true);
     let orders = [];
     const ordersData = await getDocs(collection(db, "orders"));
     ordersData.forEach((order) => {
       orders.push(order.data());
     });
     setUserOrders(orders);
-    setIsLoading(false)
   }
 
   async function getDevices() {
@@ -125,7 +122,10 @@ function App() {
       cartRef, 
       modalVisible, 
       setModalVisible,
+      modalSuccessVisible, 
+      setModalSuccessVisible,
       getCart,
+      userCart,
       setUserCart,
       devicesList, 
       usersList,
@@ -133,10 +133,11 @@ function App() {
       getOrder,
       isLoading,
       setIsLoading,
+      userOrders,
     }}>
       <BrowserRouter>
-        <NavBar userCart={userCart}/>
-        <AppRouter userCart={userCart} userOrders={userOrders}/>
+        <NavBar/>
+        <AppRouter/>
       </BrowserRouter>
     </Context.Provider>
   );

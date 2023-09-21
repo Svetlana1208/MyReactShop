@@ -4,13 +4,9 @@ import { Context } from '../App';
 
 export default function useData() {
   const { devices, devData, setDevData, selectedType, selectedBrand, setCurrentPage} = useContext(Context);
-  let currentDevicesData = devData;
 
     useEffect(() => {
-      currentDevicesData = devData;
-    }, [devData])
-
-    useEffect(() => {
+      let currentDevicesData = devData;
       setCurrentPage(1);
       if((selectedBrand.value === 'Все' && !selectedType) || (selectedBrand.value === 'Все' && selectedType.value === "Каталог") || (!selectedBrand && selectedType.value === "Каталог") || (selectedBrand.value === 'Все' && selectedType.value === "Каталог")) {
         currentDevicesData = devices;

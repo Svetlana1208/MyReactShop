@@ -6,12 +6,11 @@ import TypeBar from '../components/TypeBar';
 import BrandBar from '../components/BrandBar';
 import DeviceList from '../components/DeviceList';
 import Pages from '../components/Pages';
-import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
 import { Context } from '../App';
 import Loading from '../components/Loading';
 
-export default observer(function Shop() {
+export default function Shop() {
   const {isLoading} = useContext(Context);
   return (
     <Container>
@@ -34,4 +33,4 @@ export default observer(function Shop() {
       </Row>
     </Container>
   )
-})
+}

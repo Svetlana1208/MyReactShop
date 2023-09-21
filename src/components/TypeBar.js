@@ -1,9 +1,8 @@
-import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import { Context } from '../App';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-export default observer( function TypeBar() {
+export default  function TypeBar() {
     const {types, selectedType, setSelectedType} = useContext(Context);
 
     return (
@@ -19,4 +18,4 @@ export default observer( function TypeBar() {
             )}
         </ListGroup>
     );
-});
+};

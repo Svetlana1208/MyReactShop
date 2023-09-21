@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import DeviceOrder from './DeviceOrder';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Context } from '../App';
 
-export default function Cart({userCart}) {
+export default function Cart() {
+  const {userCart} = useContext(Context);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {

@@ -1,4 +1,3 @@
-import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import DeviceItem from './DeviceItem';
 import Loading from './Loading';
@@ -6,7 +5,7 @@ import useData from '../hooks/useData';
 import { Context } from '../App';
 
 
-export default observer (function DeviceList() {
+export default function DeviceList() {
   const {currentPage, limit} = useContext(Context);
   const devices = useData();
   let page = currentPage;
@@ -28,4 +27,4 @@ export default observer (function DeviceList() {
         </div>
       </div>
     )
-  })
+  }

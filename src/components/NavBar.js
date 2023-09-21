@@ -2,20 +2,16 @@ import React, { useContext } from 'react';
 import { Context } from '../App';
 import { Nav, Navbar, Button, Container } from 'react-bootstrap';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { observer } from 'mobx-react-lite';
 import { ADMIN_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, ORDER_ROUTE} from '../utils/consts';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import CartModal from './CartModal';
+import Success from './Success';
 
 
-const NavBar = observer (({userCart}) => {
-    const {auth, setModalVisible,  modalVisible} = useContext(Context);
+export default function NavBar() {
+    const {auth, setModalVisible} = useContext(Context);
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
-
-    function signOut() {
-        auth.signOut();
-    }
 
   return (
     <Navbar bg="dark" data-bs-theme="dark">
@@ -32,7 +28,9 @@ const NavBar = observer (({userCart}) => {
                         :
                         <Button variant="outline-primary" onClick={() => setModalVisible(true)}>Корзина</Button>
                     }
-                    <Button variant="outline-primary" onClick={() => signOut()}>Выйти</Button>
+                    <a href="/">
+                        <Button variant="outline-primary" onClick={() => auth.signOut()}>Выйти</Button>
+                    </a>
                 </Nav>
                 :
                 <Nav className='ms-auto' style={{color:'blue', gap: 10}}>
@@ -40,10 +38,9 @@ const NavBar = observer (({userCart}) => {
                     <Button variant="outline-primary" onClick={() => navigate(REGISTRATION_ROUTE)}>Регистрация</Button>
                 </Nav>
             }
-            <CartModal userCart={userCart} show={modalVisible} onHide={() => setModalVisible(false)}/>
+            <CartModal/>
+            <Success/>
         </Container>
     </Navbar>
     );
-})
-
-export default NavBar;
+}

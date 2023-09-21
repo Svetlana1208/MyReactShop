@@ -5,7 +5,6 @@ import { FaTrash } from 'react-icons/fa';
 import { Context } from '../App';
 import { doc, deleteDoc } from "firebase/firestore";
 
-
 export default function OrderItem({order}) {
     const {ordersList, getOrder} = useContext(Context);
 

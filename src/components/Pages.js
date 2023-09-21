@@ -1,11 +1,10 @@
-import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import { Context } from '../App';
 import { Pagination } from 'react-bootstrap';
 import useData from '../hooks/useData';
 
 
-export default observer(function Pages() {
+export default function Pages() {
   const devData = useData();
   const {currentPage, setCurrentPage, limit} = useContext(Context);
   const pageCount = Math.ceil(devData.length / limit);
@@ -28,4 +27,4 @@ export default observer(function Pages() {
         )}
     </Pagination>
   )
-})
+}

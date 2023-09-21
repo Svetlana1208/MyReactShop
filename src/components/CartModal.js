@@ -7,8 +7,8 @@ import { Context } from '../App';
 import { doc, setDoc, deleteDoc } from "firebase/firestore";
 
 
-export default function CartModal({show, onHide, userCart}) {
-    const {ordersList, user, cartRef, getCart, setUserCart, setModalVisible} = useContext(Context);
+export default function CartModal() {
+    const {userCart, ordersList, user, cartRef, getCart, modalVisible, setUserCart, setModalVisible, setModalSuccessVisible} = useContext(Context);
   
     function sendOrder() {
         const idOrder = Date.now();
@@ -30,12 +30,13 @@ export default function CartModal({show, onHide, userCart}) {
         getCart();    
         setUserCart([]);
         setModalVisible(false);
+        setModalSuccessVisible(true)
       }
     
   return (
     <Modal
-        show={show}
-        onHide={onHide}
+        show={modalVisible}
+        onHide={setModalVisible}
         size="lg"
         centered
     >
@@ -48,7 +49,7 @@ export default function CartModal({show, onHide, userCart}) {
             <Cart userCart={userCart}/>
         </Modal.Body>
         <Modal.Footer>
-            <Button variant={'outline-danger'} onClick={() => onHide()}>Закрыть</Button>
+            <Button variant={'outline-danger'} onClick={() => setModalVisible()}>Закрыть</Button>
             <Button variant={'outline-success'} onClick={() => sendOrder()}>Отправить заказ</Button>
         </Modal.Footer>
     </Modal>

@@ -1,10 +1,9 @@
-import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import { Context } from '../App';
 import { Card } from 'react-bootstrap';
 
 
-export default observer(function BrandBar() {
+export default function BrandBar() {
     const {brands, selectedBrand, setSelectedBrand} = useContext(Context);
 
   return (
@@ -22,4 +21,4 @@ export default observer(function BrandBar() {
         )}
     </div>
   );
-});
+};

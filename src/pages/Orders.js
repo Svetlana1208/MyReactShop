@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import OrderItem from '../components/OrderItem';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Context } from '../App';
 
-export default function Orders({userOrders}) {
+export default function Orders() {
+  const {userOrders} = useContext(Context);
   return (
       <div className='d-block'>
         <ListGroup as="ol" numbered>
