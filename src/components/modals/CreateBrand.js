@@ -41,7 +41,7 @@ export default function CreateBrand({show, onHide}) {
 >
     <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-            Добавить новый бренд
+            Додати новий бренд
         </Modal.Title>
     </Modal.Header>
     <Modal.Body>
@@ -49,13 +49,18 @@ export default function CreateBrand({show, onHide}) {
             <Form.Control
                 value={value}
                 onChange={e => setValue(e.target.value)}
-                placeholder={"Введите название бренда"}>
+                placeholder={"Введіть назву бренду"}>
             </Form.Control>
         </Form>
     </Modal.Body>
     <Modal.Footer>
-        <Button variant={'outline-danger'} onClick={onHide}>Закрыть</Button>
-        <Button variant={'outline-success'} onClick={addBrand}>Добавить</Button>
+        <Button variant={'outline-danger'} onClick={onHide}>Закрити</Button>
+        {value
+        ?
+        <Button variant={'outline-success'} onClick={addBrand}>Додати</Button>
+        :
+        <Button variant={'outline-success'} disabled onClick={addBrand}>Додати</Button>
+        }
     </Modal.Footer>
 </Modal>
 )

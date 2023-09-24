@@ -47,17 +47,17 @@ return (
       style={{height: window.innerHeight - 154}}
       >
       <Card style={{width: 600}} className='p-5'>
-        <h2 className='m-auto'>{isLogin ? 'Авторизация' : 'Регистрация'}</h2>
+        <h2 className='m-auto'>{isLogin ? 'Авторизація' : 'Реєстрація'}</h2>
         <Form className='d-flex flex-column'>
           <Form.Control 
             className="mt-3"
-            placeholder="Введите ваш e-mail..."
+            placeholder="Введіть ваш e-mail..."
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
           <Form.Control 
             className="mt-3"
-            placeholder="Введите ваш пароль..."
+            placeholder="Введіть ваш пароль..."
             value={password}
             onChange={e => setPassword(e.target.value)}
             type='password'
@@ -65,20 +65,20 @@ return (
           <div className='d-flex justify-content-between pt-3'>
             {isLogin ? 
               <div>
-                Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
+                Немає аккаунту? <NavLink to={REGISTRATION_ROUTE}>Зареєструйся!</NavLink>
               </div>
               :
               <div>
-                Нет аккаунта? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
+                Є аккаунт? <NavLink to={LOGIN_ROUTE}>Увійдіть!</NavLink>
               </div>
             }
             {isLogin ? 
             <Button variant="outline-primary" onClick={login}>
-            Войти
+            Увійти
             </Button>
             :
             <Button variant="outline-primary" onClick={registration}>
-            Регистрация
+            Реєстрація
             </Button>
             }
           </div>

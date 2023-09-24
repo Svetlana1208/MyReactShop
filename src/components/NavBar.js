@@ -16,26 +16,26 @@ export default function NavBar() {
   return (
     <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-            <NavLink style={{marginLeft: 50, color:'blue'}} to='/shop'>MyShop</NavLink>
+            <NavLink style={{marginLeft: 50, color:'blue'}} to='/shop'>Мій магазин</NavLink>
             {user ?
                 <Nav className='ms-auto' style={{ gap: 10}}>
                     <p style={{margin: 'auto 0', color: 'blue'}}>{user.email}</p>
                     {user.email === 'admin@admin.ua' ?
                         <div style={{display:'flex', gap: 10}}>
-                            <Button variant="outline-primary" onClick={() => navigate(ORDER_ROUTE)}>Заказы</Button>
-                            <Button variant="outline-primary" onClick={() => navigate(ADMIN_ROUTE)}>Админ панель</Button>
+                            <Button variant="outline-primary" onClick={() => navigate(ORDER_ROUTE)}>Замовлення</Button>
+                            <Button variant="outline-primary" onClick={() => navigate(ADMIN_ROUTE)}>Адмін панель</Button>
                         </div>
                         :
-                        <Button variant="outline-primary" onClick={() => setModalVisible(true)}>Корзина</Button>
+                        <Button variant="outline-primary" onClick={() => setModalVisible(true)}>Кошик</Button>
                     }
                     <a href="/">
-                        <Button variant="outline-primary" onClick={() => auth.signOut()}>Выйти</Button>
+                        <Button variant="outline-primary" onClick={() => auth.signOut()}>Вийти</Button>
                     </a>
                 </Nav>
                 :
                 <Nav className='ms-auto' style={{color:'blue', gap: 10}}>
-                    <Button variant="outline-primary" onClick={() => navigate(LOGIN_ROUTE)}>Авторизация</Button>
-                    <Button variant="outline-primary" onClick={() => navigate(REGISTRATION_ROUTE)}>Регистрация</Button>
+                    <Button variant="outline-primary" onClick={() => navigate(LOGIN_ROUTE)}>Авторизація</Button>
+                    <Button variant="outline-primary" onClick={() => navigate(REGISTRATION_ROUTE)}>Реєстрація</Button>
                 </Nav>
             }
             <CartModal/>

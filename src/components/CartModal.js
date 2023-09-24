@@ -42,15 +42,20 @@ export default function CartModal() {
     >
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter" className='mx-auto'>
-                Корзина
+                Кошик
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <Cart userCart={userCart}/>
         </Modal.Body>
         <Modal.Footer>
-            <Button variant={'outline-danger'} onClick={() => setModalVisible()}>Закрыть</Button>
-            <Button variant={'outline-success'} onClick={() => sendOrder()}>Отправить заказ</Button>
+            <Button variant={'outline-danger'} onClick={() => setModalVisible()}>Закрити</Button>
+            {userCart.length 
+            ?
+            <Button variant={'outline-success'} onClick={() => sendOrder()}>Відправити замовлення</Button>
+            :
+            <Button variant={'outline-success'} disabled onClick={() => sendOrder()}>Відправити замовлення</Button>
+            } 
         </Modal.Footer>
     </Modal>
     )

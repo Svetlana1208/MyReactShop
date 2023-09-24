@@ -52,14 +52,14 @@ export default function DevicePage() {
           <Card
             className='d-flex flex-column align-items-center justify-content-around'
             style={{width: 320, height: 320, fontSize: 32, border: '5px solid lightgray'}}>
-              <h3>От: {currentDevice.price} грн.</h3>
+              <h3>Від: {currentDevice.price} грн.</h3>
               {(user && user.email !== ADMIN) ?
-              <Button variant={"outline-dark"} onClick={addToCart}>Добавить в корзину</Button>
+              <Button variant={"outline-dark"} onClick={addToCart}>Додати у кошик</Button>
               :
-              <Button variant={"outline-dark"} disabled>Добавить в корзину</Button>
+              <Button variant={"outline-dark"} disabled>Додати у кошик</Button>
               }
               {(user && user.email === ADMIN) &&
-              <Button variant={"outline-dark"} onClick={deleteDevice}>Удалить товар</Button>
+              <Button variant={"outline-dark"} onClick={deleteDevice}>Видалити товар</Button>
               }
             </Card>
         </Col>

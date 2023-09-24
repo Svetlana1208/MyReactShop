@@ -8,9 +8,9 @@ export default function useData() {
     useEffect(() => {
       let currentDevicesData = devData;
       setCurrentPage(1);
-      if((selectedBrand.value === 'Все' && !selectedType) || (selectedBrand.value === 'Все' && selectedType.value === "Каталог") || (!selectedBrand && selectedType.value === "Каталог") || (selectedBrand.value === 'Все' && selectedType.value === "Каталог")) {
+      if((selectedBrand.value === 'Всі' && !selectedType) || (selectedBrand.value === 'Всі' && selectedType.value === "Каталог") || (!selectedBrand && selectedType.value === "Каталог") || (selectedBrand.value === 'Всі' && selectedType.value === "Каталог")) {
         currentDevicesData = devices;
-      } else if((selectedType && !selectedBrand && selectedType.value !== "Каталог") || (selectedBrand.value === 'Все' && selectedType)) {
+      } else if((selectedType && !selectedBrand && selectedType.value !== "Каталог") || (selectedBrand.value === 'Всі' && selectedType)) {
         currentDevicesData = devices.filter(device => device.category === selectedType.value)
       } else if(selectedType && selectedBrand && selectedType.value !== "Каталог") {
         currentDevicesData = devices.filter(device => device.brand === selectedBrand.value && device.category === selectedType.value)

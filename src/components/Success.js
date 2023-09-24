@@ -15,14 +15,14 @@ export default function Success() {
     >
         <Modal.Header>
             <Modal.Title id="contained-modal-title-vcenter" className='mx-auto'>
-                Ваш заказ успешно отправлен!
+                Ваше замовлення успішно відправлено!
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            Благодарим за заказ. Ожидайте, с вами свяжется менеджер для уточнения данных.
+            Дякуємо за замовлення. Очікуйте, з вами зв'яжеться менеджер для уточнення даних.
         </Modal.Body>
         <Modal.Footer>
-            <Button variant={'outline-danger'} onClick={() => setModalSuccessVisible(false)}>Закрыть</Button>
+            <Button variant={'outline-danger'} onClick={() => setModalSuccessVisible(false)}>Закрити</Button>
         </Modal.Footer>
     </Modal>
   );

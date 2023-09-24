@@ -11,13 +11,13 @@ export default function Admin() {
   return (
     <Container className='d-flex flex-column'>
       <Button variant={'outline-primary'} className='mt-4 p-2' onClick={() => setTypeVisible(true)}>
-        Добавить тип
+        Додати тип
       </Button>
       <Button variant={'outline-primary'} className='mt-4 p-2' onClick={() => setBrandVisible(true)}>
-        Добавить бренд
+        Додати бренд
       </Button>
       <Button variant={'outline-primary'} className='mt-4 p-2' onClick={() => setDeviceVisible(true)}>
-        Добавить устройство
+        Додати товар
       </Button>
       <CreateBrand show={brandVisible} onHide={() => setBrandVisible(false)}/>
       <CreateDevice show={deviceVisible} onHide={() => setDeviceVisible(false)}/>

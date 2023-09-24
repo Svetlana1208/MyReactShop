@@ -22,9 +22,9 @@ export default function OrderItem({order}) {
             <div className='container'>
                 <div className='row align-items-center'>
                     <div className='col-3'>
-                        <div>Заказ № <b>{order.idOrder}</b></div>
-                        <div>от {order.dateOrder}</div>
-                        <div>Покупатель: <i>{order.customer}</i></div>
+                        <div>Замовлення № <b>{order.idOrder}</b></div>
+                        <div>від {order.dateOrder}</div>
+                        <div>Покупець: <i>{order.customer}</i></div>
                     </div>
                     <div className='col'>
                         <Image width={70} height={70} src={order.image}/>

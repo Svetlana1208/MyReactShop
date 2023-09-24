@@ -21,9 +21,9 @@ export default function Cart() {
                   <DeviceOrder userCart={userCart} key={device.id} device={device} setTotal={setTotal}/>
                   ))
               :
-              <h2>Корзина пуста</h2>
+              <h2>Кошик порожній</h2>
             }
-            <b>Общая сумма заказа: {total} грн.</b>
+            <b>Загальна сума замовлення: {total} грн.</b>
           </ListGroup>
         </div>
       </div>

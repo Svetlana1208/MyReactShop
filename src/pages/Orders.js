@@ -13,7 +13,7 @@ export default function Orders() {
                 <OrderItem key={order.id} order={order} userOrders={userOrders} />
                 ))
             :
-            <h2 className='mt-5 mx-auto'>Заказов нет</h2>
+            <h2 className='mt-5 mx-auto'>Замовлень немає</h2>
           }
         </ListGroup>
     </div>
